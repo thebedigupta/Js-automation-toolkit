@@ -1,1 +1,12 @@
-node_modules
+node_modules/
+dist/
+build/
+*.log
+*.tsbuildinfo
+.DS_Store   
+.env
+.idea/
+.vscode/
+coverage/
+*.spec.ts
+*.test.ts   
