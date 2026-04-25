@@ -69,36 +69,3 @@ function processedUser(users: User[]): ProcessedUser[] {
     }));
 }
 
-async function generateReport(
-  processedUsers: ProcessedUser[],
-): Promise<string> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const summaryLines: string = processedUsers
-        .map((user) => user.summary)
-        .join('\n');
-
-      const report = [
-        'User Report',
-        `Total Active Users: ${processedUsers.length}`,
-        '',
-        summaryLines,
-      ].join('\n');
-
-      resolve(report);
-    }, 300);
-  });
-}
-
-async function main(): Promise<void> {
-  try {
-    const users = await fetchUser();
-    const processUser = await processedUser(users);
-    const report = await generateReport(processUser);
-    console.log(report);
-  } catch (error) {
-    console.log('Pipeline Error :', error);
-  }
-}
-
-void main();
